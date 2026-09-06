@@ -30,10 +30,13 @@ HOW TO RUN
 
 2. Create a .env file in this folder with:
      OPENROUTER_API_KEY=sk-or-v1-...
-     OPENROUTER_MODEL_ID=meta-llama/llama-3.1-8b-instruct:free
+     OPENROUTER_MODEL_ID=openrouter/free
 
-   Get a free API key at https://openrouter.ai/keys. Browse available
-   models, including free ones, at https://openrouter.ai/models
+   Get a free API key at https://openrouter.ai/keys. The default model,
+   openrouter/free, automatically routes to whichever free model is
+   currently available, since specific free model IDs come and go.
+   Browse specific models at https://openrouter.ai/models if you want a
+   fixed, repeatable choice instead.
 
 3. Start the app:
      streamlit run app.py
@@ -84,7 +87,7 @@ def get_kernel() -> Kernel:
         OpenAIChatCompletion(
             service_id="storyteller",
             ai_model_id=os.getenv(
-                "OPENROUTER_MODEL_ID", "meta-llama/llama-3.1-8b-instruct:free"
+                "OPENROUTER_MODEL_ID", "openrouter/free"
             ),
             async_client=async_client,
         )
