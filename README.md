@@ -89,11 +89,17 @@ apply to your next message.
 
 ## Choosing a model
 
-The default model, `meta-llama/llama-3.1-8b-instruct:free`, costs nothing
-to use. Browse other options, including other free models, at
-<https://openrouter.ai/models> (filter by "Free" in the pricing filter),
-then change `OPENROUTER_MODEL_ID` in your `.env` file to try a different
-one. No code changes needed.
+The default, `openrouter/free`, is a router that automatically selects a
+currently-available free model for you, this is deliberately robust,
+since specific free model slugs get retired or rate-limited over time
+(this happened during testing: `meta-llama/llama-3.1-8b-instruct:free`
+stopped being free shortly after this app was built).
+
+If you want consistent, repeatable output for a demo (the same model every
+time, rather than whatever the router picks), browse specific free models
+at <https://openrouter.ai/models> (filter by "Free" in the pricing filter)
+and set `OPENROUTER_MODEL_ID` in your `.env` to that exact slug instead.
+Check the page right before class, free model availability changes.
 
 ## Files in this folder
 
